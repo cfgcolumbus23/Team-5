@@ -1,1 +1,13 @@
 # Team-5
+
+## Welcome to Ctrl - R
+
+### So far we have decided that our main deliverables for this project are 
+    1. Assessments
+    2. Incentives
+    3. Integrations
+
+### 5 pm stand up
+- William And Akshar are working on the Login Page
+- Jonathon, Jay, and Natalia are working on the student page
+- See pictures of board for more information.
