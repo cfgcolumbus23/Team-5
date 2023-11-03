@@ -38,10 +38,31 @@ class StudentDashboard extends StatelessWidget {
 class Stats extends StatelessWidget{
   const Stats();
   
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    throw UnimplementedError();
+    List<int> scores = [80,88,88,86,84];
+    return ListView(
+        scrollDirection: Axis.horizontal,
+        children: <Widget>[   
+            Container(
+              child: Text('Score: ' + scores.elementAt(0).toString()),
+            ),
+            Container(
+              child: Text('Score: ' + scores.elementAt(1).toString()),
+            ),
+            Container(
+              child: Text('Score: ' + scores.elementAt(2).toString()),
+            ),
+            Container(
+              child: Text('Score: ' + scores.elementAt(3).toString()),
+            ),
+            Container(
+              child: Text('Score: ' + scores.elementAt(4).toString()),
+            ),
+        ]
+    );
   }
 }
 
