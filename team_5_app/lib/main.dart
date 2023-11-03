@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:team_5_app/pages/NewPage.dart';
+import 'package:team_5_app/pages/studentDashboard.dart';
 
 void main() {
   runApp(const MyApp());
@@ -67,8 +67,6 @@ class _MyHomePageState extends State<MyHomePage> {
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
       _counter += 3;
-
-      
     });
   }
 
@@ -116,14 +114,12 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
-            const Text(
-              'Test text'
-            ),
+            const Text('Test text'),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => Get.to(NewPage()),
+        onPressed: () => Get.to(StudentDashboard()),
         tooltip: 'Add 3',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
