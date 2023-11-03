@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:team_5_app/NextPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,7 +12,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Testing Stuff Changing!!',
       theme: ThemeData(
         // This is the theme of your application.
@@ -116,7 +118,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: () =>Get.to(NextPage()),
         tooltip: 'Add 3',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
