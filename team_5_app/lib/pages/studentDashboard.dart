@@ -23,7 +23,34 @@ class StudentDashboard extends StatelessWidget {
           ),
         ),
         body: const Center(
-          child: Text('Text in the center of the screen'),
+          child: Column(
+            children: [
+              Stats(),
+              Incentives(),
+            ]
+          ),
         ));
+  }
+}
+
+
+
+class Stats extends StatelessWidget{
+  const Stats();
+  
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    throw UnimplementedError();
+  }
+}
+
+class Incentives extends StatelessWidget {
+  const Incentives();
+  
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    throw UnimplementedError();
   }
 }
