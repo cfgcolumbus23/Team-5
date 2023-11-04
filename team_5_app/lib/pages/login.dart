@@ -130,7 +130,9 @@ class _LoginPageState extends State<LoginPage> {
                     width: 329,
                     height: 56,
                     child: ElevatedButton(
-                      onPressed: () {Get.to(StudentDashboard());},
+                      onPressed: () {
+                        Get.to(StudentDashboard());
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFF9F7BFF),
                       ),
