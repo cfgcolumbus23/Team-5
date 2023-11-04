@@ -8,97 +8,112 @@ class Incentives extends StatelessWidget {
   @override
   FractionallySizedBox build(BuildContext context) {
     // build the list of incentives
-    List<TableRow> incentives = [];
+    List<Row> incentives = [];
     // Table header
-    incentives.add(const TableRow(
+    incentives.add(const Row(
       children: [
-        TableCell(child: Center(child: Text('Reward'))),
-        TableCell(child: Center(child: Text('Requirement'))),
-        TableCell(child: Center(child: Text('Reward Claimed?')))
+        SizedBox(child: Material(child: Center(child: Text('Reward')))),
+        Expanded(child: Material(child: Center(child: Text('Requirement')))),
+        SizedBox(child: Material(child: Center(child: Text('Reward Claimed?'))))
       ],
     ));
     // Table row
-    incentives.add(TableRow(
+    incentives.add(Row(
       children: [
-        TableCell(child: Text(r'$25 Gift Card')),
-        TableCell(child: ElevatedButton(
-          onPressed: () {},
-          child: Text('IT Fundamentals'))),
-        TableCell(
-            child: Icon(
+        SizedBox(child: Material(child: Container(child: const Text(r'$25')))),
+        Expanded(
+            child: SizedBox(
+                width: double.infinity,
+                child: Material(
+                    child: ElevatedButton(
+                        onPressed: () {},
+                        child: const Text('IT Fundamentals'))))),
+        const SizedBox(
+            child: Material(
+                child: Icon(
           Icons.highlight_off,
           color: Colors.red,
-        ))
+        )))
       ],
     ));
-    incentives.add(TableRow(
+    incentives.add(Row(
       children: [
-        TableCell(child: Text(r'$50 Gift Card')),
-        TableCell(child: ElevatedButton(
-          onPressed: () {},
-          child: Text('A+ Certifications'))),
-        TableCell(
-            child: Icon(
+        const SizedBox(child: Material(child: Text(r'$50'))),
+        Expanded(
+            child: Material(
+                child: ElevatedButton(
+                    onPressed: () {}, child: const Text('A+ Certifications')))),
+        const SizedBox(
+            child: Material(
+                child: Icon(
           Icons.done,
           color: Colors.green,
-        ))
+        )))
       ],
     ));
     // Table row
-    incentives.add(TableRow(
+    incentives.add(Row(
       children: [
-        TableCell(child: Text(r'$15 Gift Card')),
-        TableCell(child: ElevatedButton(
-          onPressed: () {},
-          child: Text('Digital Literacy'))),
-        TableCell(
-            child: Icon(
+        const SizedBox(child: Material(child: Text(r'$15'))),
+        Expanded(
+            child: Material(
+                child: ElevatedButton(
+                    onPressed: () {}, child: const Text('Digital Literacy')))),
+        const SizedBox(
+            child: Material(
+                child: Icon(
           Icons.highlight_off,
           color: Colors.red,
-        ))
+        )))
       ],
     ));
-    incentives.add(TableRow(
+    incentives.add(Row(
       children: [
-        TableCell(child: Text(r'$25 Gift Card')),
-        TableCell(child: ElevatedButton(
-          onPressed: () {},
-          child: Text('IT Certifications'))),
-        TableCell(
-            child: Icon(
+        const SizedBox(child: Material(child: Text(r'$25'))),
+        Expanded(
+            child: Material(
+                child: ElevatedButton(
+                    onPressed: () {}, child: const Text('IT Certifications')))),
+        const SizedBox(
+            child: Material(
+                child: Icon(
           Icons.done,
           color: Colors.green,
-        ))
+        )))
       ],
     ));
     // Table row
-    incentives.add(TableRow(
+    incentives.add(Row(
       children: [
-        TableCell(child: Text(r'$50 Gift Card')),
-        TableCell(child: ElevatedButton(
-          onPressed: () {},
-          child: Text('Complete ESB'))),
-        TableCell(
-            child: Icon(
+        const SizedBox(child: Material(child: Text(r'$50'))),
+        Expanded(
+            child: Material(
+                child: ElevatedButton(
+                    onPressed: () {}, child: const Text('Complete ESB')))),
+        const SizedBox(
+            child: Material(
+                child: Icon(
           Icons.done,
           color: Colors.green,
-        ))
+        )))
       ],
     ));
-    
 
     return FractionallySizedBox(
         widthFactor: .8,
         heightFactor: 1,
         child: Column(children: [
           const Row(children: [
-            Flexible(child: Text("Status For Next Incentive: ")),
+            Flexible(child: Text("Next Incentive Status: ")),
+            SizedBox(
+              height: 50,
+            ),
             Flexible(
                 child:
                     LinearProgressIndicator(value: 100, color: Colors.green)),
           ]),
-          const Text("Incentives: "),
-          Table(children: incentives)
+          const Center(child: Text("Incentives: ")),
+          Column(children: incentives)
         ]));
   }
 }
