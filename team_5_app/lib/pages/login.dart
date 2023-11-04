@@ -4,6 +4,11 @@ import 'package:team_5_app/pages/adminDashboard.dart';
 import 'package:dio/dio.dart';
 
 import 'package:team_5_app/pages/studentDashboard.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:team_5_app/pages/studentDashboard.dart';
+import 'package:get/get.dart';
+import 'package:team_5_app/pages/adminDashboard.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -37,6 +42,9 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+          onPressed: () => Get.to(const AdminPage()),
+          child: const Icon(Icons.account_circle_rounded)),
       backgroundColor: Colors.white,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
