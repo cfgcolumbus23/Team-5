@@ -15,49 +15,51 @@ class StudentDashboard extends StatelessWidget {
       'Finish lesson today',
       'Get gift card'
     ];
-    return Scaffold(
-        appBar: AppBar(
-          title: const Text('Student HomePage'),
-        ),
-        drawer: Drawer(
-          child: ListView(
-            children: [
-              const UserAccountsDrawerHeader(
-                  accountName: CircleAvatar(child: Text('JG')),
-                  accountEmail: Column(
-                    children: [
-                      Text('UserName'),
-                      LinearProgressIndicator(
-                          value: 75.0, backgroundColor: Colors.amber),
-                    ],
-                  )),
-              const ListTile(
-                title: Text(
-                  'To-Do',
-                  style: TextStyle(
-                    color: Color(0xFF755DC1),
-                    fontSize: 27,
-                    fontFamily: 'Poppins',
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
+    return DefaultTabController(
+        initialIndex: 1,
+        length: 3,
+        child: Scaffold(
+          appBar: AppBar(
+            title: const Text('Student HomePage'),
+            bottom: const TabBar(tabs: <Widget>[
+              Tab(
+                icon: Icon(Icons.list),
               ),
-              ...[
-                for (var todo in todos)
-                  ToDo(
-                    title: todo,
-                  )
-              ]
-            ],
+              Tab(
+                icon: Icon(Icons.assessment),
+              ),
+              Tab(
+                icon: Icon(Icons.money),
+              )
+            ]),
           ),
-        ), //
-        body: const Center(
-          child: Column(children: [
-            Stats(),
-            Incentives(),
+          body: TabBarView(children: <Widget>[
+            Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Wrap(
+                  children: <Widget>[
+                    const ListTile(
+                      title: Text(
+                        'To-Do',
+                        style: TextStyle(
+                          color: Color(0xFF755DC1),
+                          fontSize: 27,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                    ...[
+                      for (var todo in todos)
+                        ToDo(
+                          title: todo,
+                        )
+                    ],
+                  ],
+                )),
+            const Stats(),
+            const Incentives()
           ]),
         ));
   }
 }
-
-
