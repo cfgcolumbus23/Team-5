@@ -26,25 +26,12 @@ class _LoginPageState extends State<LoginPage> {
     return response.data['admin'] as bool;
   }
 
-  // void isAdmin(String role) async {
-  //   bool admin = await postLogin(role);
-  //   print(admin);
-  //   if (admin) {
-  //     Get.to(AdminPage());
-  //   } else {
-  //     Get.to(StudentPage());
-  //   }
-  // }
-
   final TextEditingController _userNameController = TextEditingController();
   final TextEditingController _passController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-          onPressed: () => Get.to(const AdminPage()),
-          child: const Icon(Icons.account_circle_rounded)),
       backgroundColor: Colors.white,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

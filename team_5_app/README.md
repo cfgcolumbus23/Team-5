@@ -14,3 +14,10 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+## How to get backend working 
+
+install node js 
+cd into api folder 
+run 'npm i -g nodemon' 
+run 'nodemon index.js'
