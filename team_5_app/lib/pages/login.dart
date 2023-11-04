@@ -161,8 +161,8 @@ class _LoginPageState extends State<LoginPage> {
                     child: ElevatedButton(
                       onPressed: () async => {
                         await postLogin(_userNameController.text)
-                            ? Get.to(AdminPage())
-                            : Get.to(StudentPage())
+                            ? Get.to(const AdminPage())
+                            : Get.to(const StudentDashboard())
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFF9F7BFF),

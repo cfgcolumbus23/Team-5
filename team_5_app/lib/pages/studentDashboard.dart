@@ -64,6 +64,7 @@ class ToDo extends StatelessWidget {
   ToDo({super.key, required this.title});
 
   late Icon checkbox;
+
   var isChecked = false.obs;
 
   @override
