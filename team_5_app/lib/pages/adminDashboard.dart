@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 class AdminPage extends StatefulWidget {
   const AdminPage({super.key});
   @override
-  State<AdminPage> createState() => _AdminPageState();
+  State<AdminPage> createState() => _LoginPageState();
 }
 
-class _AdminPageState extends State<AdminPage> {
+class _LoginPageState extends State<AdminPage> {
   Widget build(BuildContext context) {
     return DefaultTabController(
       initialIndex: 1,
