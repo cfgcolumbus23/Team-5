@@ -1,54 +1,54 @@
 import 'package:flutter/material.dart';
 import 'package:coverflow/coverflow.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:team_5_app/pages/assessment/assessment_progress.dart';
 
 class Stats extends StatelessWidget {
   const Stats();
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    List<int> scores = [80,88,88,86];
-    List<String> tests = ["Int Basics Assessment", "Email Assessment", "Win Assessment", "Mac Assessment"];
-    return Expanded(
-    
-        child: CoverFlow(images: 
-          [
-            for(var i=0; i< scores.length; i++) SizedBox(
-                width: 200,
-                height: 200,
-                child: ElevatedButton(
-                  onPressed: () {
-                      //Get.to(Assessment1());
-                  },
-                  style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF9F7BFF),
-                  ),
-
-                  child: Container(
-                    color: Colors.white,
-                    child: Text('${tests.elementAt(i)}: ${scores.elementAt(i)} %',
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                        fontFamily: 'Arial',
-                    ),)
-                    
-                  ),
-                )
-              ),
-          ] 
-        ),
+    return SingleChildScrollView(
+        padding: const EdgeInsets.all(12),
+        child: Column(
+          children: [
+            buildCard('Int Basic Assessment', 80),
+            const SizedBox(height: 12),
+            buildCard('Email Assessment', 89),
+            const SizedBox(height: 12),
+            buildCard('Win Assessment', 90),
+            const SizedBox(height: 12),
+            buildCard('Mac Assessment', 75),
+            const SizedBox(height: 12),
+            buildCard('Test', 90),
+            const SizedBox(height: 12),
+          ],
+        )
     );
-    // return Expanded(
-    //   child: ListView(
-    //       scrollDirection: Axis.vertical,
-    //       children: [
-    //         for(var score in scores) SizedBox(
-    //             width: 160,
-    //             //height: 160,
-    //             child: Text('Score: $score'),
-    //           ),
-    //       ]        
-    //   ),
-    // );
+  }
+
+  buildCard(String name, int score) {
+    return ButtonTheme(
+        minWidth: 100,
+        height: 100,
+        child:ElevatedButton(
+        onPressed: () {
+          Get.to(const AssessmentProgress());
+        },
+        style: ElevatedButton.styleFrom(
+          backgroundColor: const Color(0xFF9F7BFF),
+        ),
+        child: Container(
+            color: Colors.white,
+            child: Center(child: Text('$name:, $score',
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontFamily: 'Arial',
+              ),)
+            )
+        )
+      )
+    );
   }
 }
