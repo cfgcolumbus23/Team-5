@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
 const data = require("./data/data.js");
+const cors = require("cors");
+app.use(cors());
 app.use(express.json());
 app.post("/login", (req, res) => {
 	const { id } = req.body;
