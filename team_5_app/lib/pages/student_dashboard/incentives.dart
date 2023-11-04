@@ -22,7 +22,7 @@ class Incentives extends StatelessWidget {
       children: [
         TableCell(child: Text(r'$25 Gift Card')),
         TableCell(child: ElevatedButton(
-          onPressed: () {Get.to(AssessmentPage());},
+          onPressed: () {},
           child: Text('IT Fundamentals'))),
         TableCell(
             child: Icon(
@@ -35,7 +35,7 @@ class Incentives extends StatelessWidget {
       children: [
         TableCell(child: Text(r'$50 Gift Card')),
         TableCell(child: ElevatedButton(
-          onPressed: () {Get.to(AssessmentPage());},
+          onPressed: () {},
           child: Text('A+ Certifications'))),
         TableCell(
             child: Icon(
@@ -49,7 +49,7 @@ class Incentives extends StatelessWidget {
       children: [
         TableCell(child: Text(r'$15 Gift Card')),
         TableCell(child: ElevatedButton(
-          onPressed: () {Get.to(AssessmentPage());},
+          onPressed: () {},
           child: Text('Digital Literacy'))),
         TableCell(
             child: Icon(
@@ -62,7 +62,7 @@ class Incentives extends StatelessWidget {
       children: [
         TableCell(child: Text(r'$25 Gift Card')),
         TableCell(child: ElevatedButton(
-          onPressed: () {Get.to(AssessmentPage());},
+          onPressed: () {},
           child: Text('IT Certifications'))),
         TableCell(
             child: Icon(
@@ -76,7 +76,7 @@ class Incentives extends StatelessWidget {
       children: [
         TableCell(child: Text(r'$50 Gift Card')),
         TableCell(child: ElevatedButton(
-          onPressed: () {Get.to(AssessmentPage());},
+          onPressed: () {},
           child: Text('Complete ESB'))),
         TableCell(
             child: Icon(
