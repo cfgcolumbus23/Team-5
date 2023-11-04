@@ -94,4 +94,12 @@ app.get("/assignments/average/:id", (req, res) => {
 	}
 });
 
+app.get("/users", (req, res) => {
+	let users = [];
+	for (let i = 0; i < data.firstNames.length; i++) {
+		users.push({ name: data.firstNames[i] + " " + data.lastNames[i], id: i });
+	}
+	res.json(users);
+});
+
 app.listen(4000);
