@@ -6,7 +6,7 @@ class ToDo extends StatelessWidget {
 
   ToDo({super.key, required this.title});
 
-  var isChecked = false.obs;
+  final isChecked = false.obs;
 
   @override
   Widget build(BuildContext context) {

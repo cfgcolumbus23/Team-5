@@ -1,4 +1,3 @@
-import 'package:coverflow/coverflow.dart';
 import 'package:flutter/material.dart';
 import 'package:team_5_app/pages/student_dashboard/incentives.dart';
 import 'package:team_5_app/pages/student_dashboard/stats.dart';
