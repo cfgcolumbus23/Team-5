@@ -23,7 +23,7 @@ const data = {
 		"Moore",
 		"Taylor",
 	],
-	assignemnts: [
+	assignments: [
 		{
 			assignmentName: "Basic Comp",
 			assignmentId: 0,
