@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:team_5_app/pages/adminDashboard.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -10,9 +12,16 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _userNameController = TextEditingController();
   final TextEditingController _passController = TextEditingController();
 
+  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => Get.to(const AdminPage()), 
+        child: const Icon(Icons.account_circle_rounded)
+        ),
+
       backgroundColor: Colors.white,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
