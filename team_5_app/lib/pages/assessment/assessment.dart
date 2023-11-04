@@ -1,18 +1,36 @@
+import 'dart:convert';
+import 'dart:developer';
+import 'dart:io';
+
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:team_5_app/pages/assessment/assessment_progress.dart';
 
-class AssessmentPage extends StatelessWidget {
+class AssessmentPage extends StatefulWidget {
   const AssessmentPage({super.key});
+  @override
+  State<AssessmentPage> createState() => _AssessmentPageState();
+}
+
+class _AssessmentPageState extends State<AssessmentPage> {
+  final dio = Dio();
+  final hardCodedId = 2;
+
+  Future<String> getAssignment() async {
+    final response =
+        await dio.get('http://localhost:4000/assignments/$hardCodedId');
+
+    return response.data['assignmentName'] as String;
+  }
 
   @override
-  Widget build(BuildContext context) {
-    // assessment title
+  Scaffold build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.deepPurpleAccent,
-          title: const Text(
-            'AssessmentName Title Page',
-            style: TextStyle(
+          title: Text(
+            assignmentName,
+            style: const TextStyle(
               color: Colors.white,
               fontSize: 27,
               fontFamily: 'Poppins',
