@@ -1,10 +1,13 @@
 const express = require("express");
 const app = express();
 const data = require("./data/data.js");
+const cors = require("cors");
+app.use(cors());
 app.use(express.json());
 app.post("/login", (req, res) => {
 	const { id } = req.body;
-	if (id === 1) {
+	console.log(id)
+	if (id == "1" || id == 1) {
 		res.json({ admin: true }).status(200);
 	} else {
 		res.json({ admin: false }).status(200);

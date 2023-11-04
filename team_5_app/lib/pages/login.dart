@@ -1,4 +1,12 @@
+import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:team_5_app/pages/adminDashboard.dart';
+import 'package:dio/dio.dart';
+
+import 'package:team_5_app/pages/studentDashboard.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:team_5_app/pages/studentDashboard.dart';
 import 'package:get/get.dart';
 import 'package:team_5_app/pages/adminDashboard.dart';
 
@@ -9,18 +17,34 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final dio = Dio();
+
+  Future<bool> postLogin(String role) async {
+    final response =
+        await dio.post('http://localhost:4000/login', data: {'id': role});
+
+    return response.data['admin'] as bool;
+  }
+
+  // void isAdmin(String role) async {
+  //   bool admin = await postLogin(role);
+  //   print(admin);
+  //   if (admin) {
+  //     Get.to(AdminPage());
+  //   } else {
+  //     Get.to(StudentPage());
+  //   }
+  // }
+
   final TextEditingController _userNameController = TextEditingController();
   final TextEditingController _passController = TextEditingController();
-  
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () => Get.to(const AdminPage()), 
-        child: const Icon(Icons.account_circle_rounded)
-        ),
-
+          onPressed: () => Get.to(const AdminPage()),
+          child: const Icon(Icons.account_circle_rounded)),
       backgroundColor: Colors.white,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -135,7 +159,11 @@ class _LoginPageState extends State<LoginPage> {
                     width: 329,
                     height: 56,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () async => {
+                        await postLogin(_userNameController.text)
+                            ? Get.to(const AdminPage())
+                            : Get.to(const StudentDashboard())
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFF9F7BFF),
                       ),
