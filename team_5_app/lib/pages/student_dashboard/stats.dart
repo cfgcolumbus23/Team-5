@@ -16,9 +16,18 @@ class _StatsState extends State<Stats> {
   final dio = Dio();
   int id = 0;
   _StatsState({required this.id});
-  List<Column> assessmentInfo = [];
+  //List<Column> assessmentInfo = [];
+
+  List<Column> makeAssessment(List<dynamic>? columns) {
+    if (columns != null) {
+      return columns as List<Column>;
+    } else {
+      return <Column>[];
+    }
+  }
 
   Future<List<Column>> getAssessments() async {
+    List<Column> assessmentInfo = [];
     final response = await dio.get('http://localhost:4000/assignments');
 
     // parse the responses
@@ -34,7 +43,7 @@ class _StatsState extends State<Stats> {
         ]));
       }
     } catch (e) {
-      print(e);
+      //print(e);
     }
     return assessmentInfo;
   }
@@ -45,10 +54,9 @@ class _StatsState extends State<Stats> {
         future: getAssessments(),
         builder: (context, snapshot) {
           return SingleChildScrollView(
-              padding: const EdgeInsets.all(12),
-              child: Column(
-                children: assessmentInfo,
-              ));
+            padding: const EdgeInsets.all(12),
+            child: Wrap(children: makeAssessment(snapshot.data)),
+          );
         });
   }
 
