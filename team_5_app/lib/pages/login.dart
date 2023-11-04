@@ -2,9 +2,7 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:team_5_app/pages/adminDashboard.dart';
 import 'package:dio/dio.dart';
-
 import 'package:team_5_app/pages/student_dashboard/studentDashboard.dart';
-
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -14,16 +12,23 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final dio = Dio();
+  final TextEditingController _userNameController = TextEditingController();
+  final TextEditingController _passController = TextEditingController();
+
+  bool _isObscured = true;  // Added this line for password visibility control
 
   Future<bool> postLogin(String role) async {
     final response =
         await dio.post('http://localhost:4000/login', data: {'id': role});
-
     return response.data['admin'] as bool;
   }
 
-  final TextEditingController _userNameController = TextEditingController();
-  final TextEditingController _passController = TextEditingController();
+  // Function to toggle the password visibility
+  void _togglePasswordVisibility() {
+    setState(() {
+      _isObscured = !_isObscured;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,16 +38,17 @@ class _LoginPageState extends State<LoginPage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Padding(
-              padding: EdgeInsets.only(left: 15, top: 15),
-              child: Text(
-                "CTRL - R",
-                style: TextStyle(
-                  color: Color(0xFF755DC1),
-                  fontSize: 27,
-                  fontFamily: 'Poppins',
-                  fontWeight: FontWeight.w500,
-                ),
-              )),
+            padding: EdgeInsets.only(left: 15, top: 15),
+            child: Text(
+              "CTRL - R",
+              style: TextStyle(
+                color: Color(0xFF755DC1),
+                fontSize: 27,
+                fontFamily: 'Poppins',
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          ),
           const SizedBox(
             height: 18,
           ),
@@ -101,34 +107,42 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 TextField(
                   controller: _passController,
-                  obscureText: true,
+                  obscureText: _isObscured,
                   style: const TextStyle(
                     color: Color(0xFF393939),
                     fontSize: 13,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w400,
                   ),
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                     labelText: 'Password',
-                    labelStyle: TextStyle(
+                    labelStyle: const TextStyle(
                       color: Color(0xFF755DC1),
                       fontSize: 15,
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.w600,
                     ),
-                    enabledBorder: OutlineInputBorder(
+                    enabledBorder: const OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(10)),
                       borderSide: BorderSide(
                         width: 1,
                         color: Color(0xFF837E93),
                       ),
                     ),
-                    focusedBorder: OutlineInputBorder(
+                    focusedBorder: const OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(10)),
                       borderSide: BorderSide(
                         width: 1,
                         color: Color(0xFF9F7BFF),
                       ),
+                    ),
+                    // Added suffix icon to show/hide password
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        _isObscured ? Icons.visibility_off : Icons.visibility,
+                        color: Color(0xFF755DC1),
+                      ),
+                      onPressed: _togglePasswordVisibility,
                     ),
                   ),
                 ),
