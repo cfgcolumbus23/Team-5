@@ -39,15 +39,16 @@ class StudentDashboard extends StatelessWidget {
           ],
         ),
       ), //
-    );
-        body: const Center(
+       body: const Center(
           child: Column(
               children: [
                 Stats(),
                 Incentives(),
               ]
           ),
-        );
+        )
+    );
+       
   }
 }
 class ToDo extends StatelessWidget {
