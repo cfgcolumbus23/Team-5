@@ -29,8 +29,8 @@ class Stats extends StatelessWidget {
   }
 
   buildCard(String name, int score) {
-    return ButtonTheme(
-        minWidth: 100,
+    return SizedBox(
+        width: double.infinity,
         height: 100,
         child:ElevatedButton(
         onPressed: () {
@@ -39,16 +39,15 @@ class Stats extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           backgroundColor: const Color(0xFF9F7BFF),
         ),
-        child: Container(
-            color: Colors.white,
-            child: Center(child: Text('$name:, $score',
+            child: Center(child: Text('$name: $score',
               textAlign: TextAlign.center,
               style: const TextStyle(
+                color: Colors.white,
                 fontFamily: 'Arial',
-              ),)
+              ),
+            )
             )
         )
-      )
-    );
+      );
   }
 }
