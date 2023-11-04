@@ -8,7 +8,7 @@ app.post("/login", (req, res) => {
 	//login endpoint for assigning roles
 	//returns a boolean based on id
 	const { id } = req.body;
-	if (id == 0) {
+	if (id == -1) {
 		res.json({ admin: true }).status(200);
 	} else {
 		res.json({ admin: false }).status(200);
@@ -25,7 +25,7 @@ app.get("/assignments", (req, res) => {
 			certificateEarned: [boolean]
     }]
     /*/
-	res.json(data.assignments);
+	res.json(data.assignments).status(200);
 });
 
 app.get("/user/:id", (req, res) => {
@@ -44,11 +44,13 @@ app.get("/user/:id", (req, res) => {
 		};
 		studentData.push(singleAssignment);
 	});
-	res.json({
-		firstName: data.firstNames[id],
-		lastName: data.lastNames[id],
-		studentData: studentData,
-	});
+	res
+		.json({
+			firstName: data.firstNames[id],
+			lastName: data.lastNames[id],
+			studentData: studentData,
+		})
+		.status(200);
 });
 
 app.get("/assignments/average", (req, res) => {
@@ -62,7 +64,7 @@ app.get("/assignments/average", (req, res) => {
 		});
 	});
 	const average = assignmentSum / assessmentsTaken;
-	res.json({ average: average });
+	res.json({ average: average }).status(200);
 });
 
 app.get("/assignments/:id", (req, res) => {
@@ -76,7 +78,7 @@ app.get("/assignments/:id", (req, res) => {
     }/*/
 	const { id } = req.params;
 	if (id >= data.assignments.length) res.json("user not found").status(404);
-	res.json(data.assignments[id]);
+	res.json(data.assignments[id]).status(200);
 });
 
 app.get("/assignments/average/:id", (req, res) => {
@@ -90,7 +92,7 @@ app.get("/assignments/average/:id", (req, res) => {
 			gradeSum += grade;
 		});
 		const average = gradeSum / data.assignments[id].assessmentPercent.length;
-		res.json(average);
+		res.json(average).status(200);
 	}
 });
 
@@ -99,7 +101,7 @@ app.get("/users", (req, res) => {
 	for (let i = 0; i < data.firstNames.length; i++) {
 		users.push({ name: data.firstNames[i] + " " + data.lastNames[i], id: i });
 	}
-	res.json(users);
+	res.json(users).status(200);
 });
 
 app.get("/users/certificate", (req, res) => {
@@ -119,7 +121,7 @@ app.get("/users/certificate", (req, res) => {
 			certs: certs,
 		});
 	}
-	res.json(usersCerts);
+	res.json(usersCerts).status(200);
 });
 
 app.listen(4000);
