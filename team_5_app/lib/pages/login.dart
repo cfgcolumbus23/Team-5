@@ -1,8 +1,6 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 import 'package:team_5_app/pages/adminDashboard.dart';
-import 'dart:convert';
 import 'package:dio/dio.dart';
 
 import 'package:team_5_app/pages/studentDashboard.dart';
