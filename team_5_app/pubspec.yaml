@@ -28,12 +28,16 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  percent_indicator: ^4.0.1
   flutter:
     sdk: flutter
+<<<<<<< HEAD
 <<<<<<< HEAD
     
 =======
     getwidget: ^4.0.0
+=======
+>>>>>>> 4355509 (Added progress bar for assignment completion.)
 
 
 >>>>>>> 3156c48 (Working on progress bar for completion of an assessment)

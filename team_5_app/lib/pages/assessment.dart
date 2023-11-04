@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:team_5_app/pages/assessment_progress.dart';
+import 'package:team_5_app/pages/login.dart';
 
 class AssessmentPage extends StatelessWidget {
   const AssessmentPage({super.key});
@@ -20,10 +21,13 @@ class AssessmentPage extends StatelessWidget {
           ),
         ),
       ),
-      body: Column(children: [
-        AssessmentLink(),
-        const AssessmentProgress(),
-      ]),
+      body: const Center(
+        child: Column (
+          children: [
+            AssessmentProgress(),
+          ]
+        )
+      )
     );
 
     // assessment progress
