@@ -2,6 +2,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:dio/dio.dart';
+import 'package:get/get.dart';
+import 'package:team_5_app/pages/student_dashboard/studentDashboard.dart';
 
 class AdminPage extends StatefulWidget {
   const AdminPage({Key? key}) : super(key: key);
@@ -18,7 +20,61 @@ class StudentInfoModel {
 class _AdminPageState extends State<AdminPage> {
   final dio = Dio();
 
-  List<StudentInfoModel> studentInfo = [];
+  List<SizedBox> makeListEntries(List<StudentInfoModel>? list) {
+    List<SizedBox> buttonList = [];
+    if (list != null) {
+      for (var x in list) {
+        buttonList.add(SizedBox(
+            width: 370,
+            height: 50,
+            child: Row(children: [
+              SizedBox(
+                  width: 200,
+                  height: 50,
+                  child: ElevatedButton(
+                      onPressed: () =>
+                          Get.to(StudentDashboard(studentID: x.id)),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFF9F7BFF),
+                      ),
+                      child: Center(
+                          child: Text(
+                        x.name,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'Arial',
+                        ),
+                      )))),
+              SizedBox(
+                  width: 70,
+                  child: ElevatedButton(
+                      onPressed: () => {},
+                      child: const Center(child: Icon(Icons.delete)))),
+              SizedBox(
+                width: 100,
+                height: 50,
+                child: ElevatedButton(
+                    onPressed: () => {},
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFF9F7BFF),
+                    ),
+                    child: const Center(
+                        child: Text(
+                      "Reward",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: 'Arial',
+                      ),
+                    ))),
+              ), //For now do nothing.
+            ])));
+        buttonList.add(const SizedBox(height: 12));
+      }
+    }
+    return buttonList;
+  }
 
   Future<List<StudentInfoModel>> getStudentsInfo() async {
     final response = await dio.get('http://localhost:4000/users');
@@ -99,8 +155,12 @@ class _AdminPageState extends State<AdminPage> {
                     ),
                   ),
                 ),
-                const Center(
-                  child: Text("Data here"),
+                Center(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: makeListEntries(snapshot.data),
+                    ),
+                  ),
                 ),
               ],
             ),
