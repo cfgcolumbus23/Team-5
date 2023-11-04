@@ -108,6 +108,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 TextField(
                   controller: _passController,
+                  obscureText: true,
                   textAlign: TextAlign.center,
                   style: const TextStyle(
                     color: Color(0xFF393939),
