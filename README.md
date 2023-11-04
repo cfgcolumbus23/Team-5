@@ -14,3 +14,10 @@
 
 # Design Notes
 - Login page currently routes to Admin page if username is 1 and routes to student page if username is anything else, password is irrelevant.
+
+## How to get backend working 
+
+install node js 
+cd into api folder 
+run 'npm i -g nodemon' 
+run 'nodemon index.js'
