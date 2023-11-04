@@ -102,4 +102,24 @@ app.get("/users", (req, res) => {
 	res.json(users);
 });
 
+app.get("/users/certificate", (req, res) => {
+	/*/		Returns the users name and certificates
+			[{name:string,certs:[{cert_name:boolean}]}]/*/
+
+	let usersCerts = [];
+	for (let i = 0; i < data.firstNames.length; i++) {
+		certs = [];
+		for (let j = 0; j < data.assignments.length; j++) {
+			const assesmentName = data.assignments[j].assignmentName;
+			const isCompleted = data.assignments[j].certificateEarned[i];
+			certs.push({ [assesmentName]: isCompleted });
+		}
+		usersCerts.push({
+			name: data.firstNames[i] + " " + data.lastNames[i],
+			certs: certs,
+		});
+	}
+	res.json(usersCerts);
+});
+
 app.listen(4000);
