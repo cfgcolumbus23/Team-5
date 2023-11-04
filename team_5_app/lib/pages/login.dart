@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:team_5_app/pages/studentDashboard.dart';
+import 'package:get/get.dart';
 import 'package:team_5_app/pages/adminDashboard.dart';
 
 class LoginPage extends StatefulWidget {
@@ -12,16 +15,12 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _userNameController = TextEditingController();
   final TextEditingController _passController = TextEditingController();
 
-  
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () => Get.to(const AdminPage()), 
-        child: const Icon(Icons.account_circle_rounded)
-        ),
-
+          onPressed: () => Get.to(const AdminPage()),
+          child: const Icon(Icons.account_circle_rounded)),
       backgroundColor: Colors.white,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -136,7 +135,9 @@ class _LoginPageState extends State<LoginPage> {
                     width: 329,
                     height: 56,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.to(StudentDashboard());
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFF9F7BFF),
                       ),
