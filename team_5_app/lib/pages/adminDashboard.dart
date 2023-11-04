@@ -33,8 +33,8 @@ class _AdminPageState extends State<AdminPage> {
               padding: const EdgeInsets.all(16.0),
               child: LineChart(
                 LineChartData(
-                  gridData: FlGridData(show: false),
-                  titlesData: FlTitlesData(show: false),
+                  gridData: const FlGridData(show: false),
+                  titlesData: const FlTitlesData(show: false),
                   borderData: FlBorderData(
                     show: true,
                     border: Border.all(
@@ -49,24 +49,24 @@ class _AdminPageState extends State<AdminPage> {
                   lineBarsData: [
                     LineChartBarData(
                       spots: [
-                        FlSpot(0, 3),
-                        FlSpot(1, 1),
-                        FlSpot(2, 4),
-                        FlSpot(3, 2.5),
-                        FlSpot(4, 1.5),
-                        FlSpot(5, 3),
-                        FlSpot(6, 3.5),
+                        const FlSpot(0, 3),
+                        const FlSpot(1, 1),
+                        const FlSpot(2, 4),
+                        const FlSpot(3, 2.5),
+                        const FlSpot(4, 1.5),
+                        const FlSpot(5, 3),
+                        const FlSpot(6, 3.5),
                       ],
                       isCurved: true,
                       color: Colors.blue,
-                      dotData: FlDotData(show: false),
+                      dotData: const FlDotData(show: false),
                       belowBarData: BarAreaData(show: false),
                     ),
                   ],
                 ),
               ),
             ),
-            Center(
+            const Center(
               child: Text("Data here"),
             ),
           ],
