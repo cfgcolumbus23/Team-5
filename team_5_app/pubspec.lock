@@ -41,6 +41,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.17.2"
+  coverflow:
+    dependency: "direct main"
+    description:
+      name: coverflow
+      sha256: "135a0bce351bbf754ec2736494fa5fede0928124c3d4ef08d64aff19701452c9"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.3"
   cupertino_icons:
     dependency: "direct main"
     description:
@@ -123,6 +131,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.8.3"
+  simple_shadow:
+    dependency: transitive
+    description:
+      name: simple_shadow
+      sha256: f1d1fe66b146fb31d1bb5fb55d3f219723f6918c0f37f1c2d922195908b53748
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.0"
   sky_engine:
     dependency: transitive
     description: flutter
