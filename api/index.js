@@ -31,7 +31,7 @@ app.get("/assignments", (req, res) => {
 app.get("/user/:id", (req, res) => {
 	//get an individual user's data
 	const { id } = req.params;
-	if (id >= data.assignments.length) {
+	if (id >= data.firstNames.length) {
 		return res.status(404).json("user not found");
 	}
 	let studentData = [];
