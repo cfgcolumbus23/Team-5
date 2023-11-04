@@ -6,6 +6,8 @@ import 'package:team_5_app/pages/assessment/assessment.dart';
 import 'package:team_5_app/pages/assessment/assessment.dart';
 
 
+import '../assessment/assessment.dart';
+
 class Stats extends StatelessWidget {
   const Stats();
 
