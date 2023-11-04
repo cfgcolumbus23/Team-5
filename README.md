@@ -17,7 +17,7 @@
 
 ## How to get backend working 
 
-install node js 
-cd into api folder 
-run 'npm i -g nodemon' 
-run 'nodemon index.js'
+-install node js 
+-cd into api folder 
+-run 'npm i -g nodemon' 
+-run 'nodemon index.js'
