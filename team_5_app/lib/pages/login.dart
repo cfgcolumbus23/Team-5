@@ -13,14 +13,29 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  Future<int> postLogin(String role) async {
+  Future<bool> postLogin(String role) async {
+    print("yes Im not crazy");
+    print(jsonEncode(<String, String>{
+      'id': role,
+    }));
     final response = await http.post(Uri.parse("http://localhost:4000/login"),
         body: jsonEncode(<String, String>{
           'id': role,
         }));
     Map<String, dynamic> jsonMap =
         jsonDecode(response.body) as Map<String, dynamic>;
-    return jsonMap['id'];
+    print(jsonMap['admin']);
+    return jsonMap['admin'] as bool;
+  }
+
+  void isAdmin(String role) async {
+    bool admin = await postLogin(role);
+    print(admin);
+    if (admin) {
+      Get.to(AdminPage());
+    } else {
+      Get.to(StudentPage());
+    }
   }
 
   final TextEditingController _userNameController = TextEditingController();
@@ -143,9 +158,7 @@ class _LoginPageState extends State<LoginPage> {
                     width: 329,
                     height: 56,
                     child: ElevatedButton(
-                      onPressed: () => postLogin(_userNameController.text) == 1
-                          ? Get.to(AdminPage())
-                          : Get.to(StudentPage()),
+                      onPressed: () => {isAdmin(_userNameController.text)},
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFF9F7BFF),
                       ),
