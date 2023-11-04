@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:team_5_app/pages/assessment/assessment.dart';
 
 class Incentives extends StatelessWidget {
   const Incentives({super.key});
@@ -16,10 +18,12 @@ class Incentives extends StatelessWidget {
       ],
     ));
     // Table row
-    incentives.add(const TableRow(
+    incentives.add(TableRow(
       children: [
         TableCell(child: Text(r'$25 Gift Card')),
-        TableCell(child: Text('Complete Digital Literacy')),
+        TableCell(child: ElevatedButton(
+          onPressed: () {Get.to(AssessmentPage());},
+          child: Text('IT Fundamentals'))),
         TableCell(
             child: Icon(
           Icons.highlight_off,
@@ -27,10 +31,12 @@ class Incentives extends StatelessWidget {
         ))
       ],
     ));
-    incentives.add(const TableRow(
+    incentives.add(TableRow(
       children: [
         TableCell(child: Text(r'$50 Gift Card')),
-        TableCell(child: Text('Complete CompTIA')),
+        TableCell(child: ElevatedButton(
+          onPressed: () {Get.to(AssessmentPage());},
+          child: Text('A+ Certifications'))),
         TableCell(
             child: Icon(
           Icons.done,
@@ -38,9 +44,52 @@ class Incentives extends StatelessWidget {
         ))
       ],
     ));
+    // Table row
+    incentives.add(TableRow(
+      children: [
+        TableCell(child: Text(r'$15 Gift Card')),
+        TableCell(child: ElevatedButton(
+          onPressed: () {Get.to(AssessmentPage());},
+          child: Text('Digital Literacy'))),
+        TableCell(
+            child: Icon(
+          Icons.highlight_off,
+          color: Colors.red,
+        ))
+      ],
+    ));
+    incentives.add(TableRow(
+      children: [
+        TableCell(child: Text(r'$25 Gift Card')),
+        TableCell(child: ElevatedButton(
+          onPressed: () {Get.to(AssessmentPage());},
+          child: Text('IT Certifications'))),
+        TableCell(
+            child: Icon(
+          Icons.done,
+          color: Colors.green,
+        ))
+      ],
+    ));
+    // Table row
+    incentives.add(TableRow(
+      children: [
+        TableCell(child: Text(r'$50 Gift Card')),
+        TableCell(child: ElevatedButton(
+          onPressed: () {Get.to(AssessmentPage());},
+          child: Text('Complete ESB'))),
+        TableCell(
+            child: Icon(
+          Icons.done,
+          color: Colors.green,
+        ))
+      ],
+    ));
+    
 
     return FractionallySizedBox(
         widthFactor: .8,
+        heightFactor: 1,
         child: Column(children: [
           const Row(children: [
             Flexible(child: Text("Status For Next Incentive: ")),
