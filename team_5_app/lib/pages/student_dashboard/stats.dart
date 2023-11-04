@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:coverflow/coverflow.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:team_5_app/pages/assessment/assessment_progress.dart';
-
 import '../assessment/assessment.dart';
 
 class Stats extends StatelessWidget {

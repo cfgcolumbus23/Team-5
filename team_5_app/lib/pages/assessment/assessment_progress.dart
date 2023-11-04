@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:team_5_app/pages/assessment/assessment.dart';
 
 class AssessmentProgress extends StatelessWidget {
   const AssessmentProgress({super.key});

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:team_5_app/pages/assessment/assessment_progress.dart';
-import 'package:team_5_app/pages/login.dart';
 
 class AssessmentPage extends StatelessWidget {
   const AssessmentPage({super.key});
