@@ -11,3 +11,6 @@
 - William And Akshar are working on the Login Page
 - Jonathon, Jay, and Natalia are working on the student page
 - See pictures of board for more information.
+
+# Design Notes
+- Login page currently routes to Admin page if username is 1 and routes to student page if username is anything else, password is irrelevant.
