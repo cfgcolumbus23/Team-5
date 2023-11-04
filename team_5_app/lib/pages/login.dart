@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:team_5_app/pages/adminDashboard.dart';
 import 'package:dio/dio.dart';
 
-import 'package:team_5_app/pages/studentDashboard.dart';
+import 'package:team_5_app/pages/student_dashboard/studentDashboard.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:team_5_app/pages/studentDashboard.dart';
+import 'package:team_5_app/pages/student_dashboard/studentDashboard.dart';
 import 'package:get/get.dart';
 import 'package:team_5_app/pages/adminDashboard.dart';
 
