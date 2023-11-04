@@ -6,19 +6,21 @@ import 'package:flutter/material.dart';
 import 'package:team_5_app/pages/assessment/assessment_progress.dart';
 
 class AssessmentPage extends StatefulWidget {
-  const AssessmentPage({super.key});
+  int id;
+  AssessmentPage({super.key, required this.id});
   @override
-  State<AssessmentPage> createState() => _AssessmentPageState();
+  // ignore: no_logic_in_create_state
+  State<AssessmentPage> createState() => _AssessmentPageState(id: id);
 }
 
 class _AssessmentPageState extends State<AssessmentPage> {
   final dio = Dio();
-  final hardCodedId = 2;
+  int id;
+  _AssessmentPageState({required this.id});
   String assessmentName = "default";
 
   Future<Response> getAssignment() async {
-    final response =
-        await dio.get('http://localhost:4000/assignments/$hardCodedId');
+    final response = await dio.get('http://localhost:4000/assignments/$id');
 
     assessmentName = response.data['assignmentName'];
     return response;
