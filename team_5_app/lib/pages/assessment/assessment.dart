@@ -24,7 +24,8 @@ class AssessmentPage extends StatelessWidget {
         body: const Center(
             child: Column(children: [
           AssessmentProgress(),
-        ])));
+        ])))
+        ;
 
     // assessment progress
 
