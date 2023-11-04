@@ -1,6 +1,5 @@
 import 'package:coverflow/coverflow.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class StudentDashboard extends StatelessWidget {
   const StudentDashboard({super.key});
