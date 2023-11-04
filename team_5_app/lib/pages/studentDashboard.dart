@@ -1,5 +1,7 @@
 import 'package:coverflow/coverflow.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 
 class StudentDashboard extends StatelessWidget {
   const StudentDashboard({super.key});
@@ -37,6 +39,7 @@ class StudentDashboard extends StatelessWidget {
           ],
         ),
       ), //
+    );
         body: const Center(
           child: Column(
               children: [
@@ -44,8 +47,7 @@ class StudentDashboard extends StatelessWidget {
                 Incentives(),
               ]
           ),
-        )
-    );
+        );
   }
 }
 class ToDo extends StatelessWidget {
