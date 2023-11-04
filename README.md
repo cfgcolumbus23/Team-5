@@ -16,7 +16,7 @@
 
 # Design Notes
 
-- Login page currently routes to Admin page if username is 1 and routes to student page if username is anything else, password is irrelevant.
+- Login page currently routes to Admin page if username is -1 and routes to student page of the corresponding studentId. If username is not a valid studentId it routes to student 1. Password is irrelevant.
 
 ## How to get backend working
 
