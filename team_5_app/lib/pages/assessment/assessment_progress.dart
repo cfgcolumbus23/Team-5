@@ -20,8 +20,7 @@ class AssessmentProgress extends StatelessWidget {
               ),
             )),
             Flexible(
-                child:
-                    LinearProgressIndicator(value: 100, color: Colors.green)),
+                child: LinearProgressIndicator(value: 80, color: Colors.green)),
           ]),
         ]));
   }
