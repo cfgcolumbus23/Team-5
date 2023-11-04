@@ -6,9 +6,11 @@ import 'package:dio/dio.dart';
 import 'package:team_5_app/pages/student_dashboard/studentDashboard.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:team_5_app/pages/student_dashboard/studentDashboard.dart';
 import 'package:get/get.dart';
-import 'package:team_5_app/pages/adminDashboard.dart';
+import 'package:team_5_app/pages/assessment/assessment.dart';
+import 'package:team_5_app/pages/assessment/assessment_progress.dart';
+
+import 'adminDashboard.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
