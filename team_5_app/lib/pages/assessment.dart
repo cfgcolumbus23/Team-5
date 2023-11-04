@@ -9,7 +9,8 @@ class AssessmentPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.deepPurpleAccent,
-        title: const Text('AssessmentName Title Page',
+        title: const Text(
+          'AssessmentName Title Page',
           style: TextStyle(
             color: Colors.white,
             fontSize: 27,
@@ -18,6 +19,10 @@ class AssessmentPage extends StatelessWidget {
           ),
         ),
       ),
+      body: Column(children: [
+        AssessmentLink(),
+        AssessmentProgress(),
+      ]),
     );
 
     // assessment progress
