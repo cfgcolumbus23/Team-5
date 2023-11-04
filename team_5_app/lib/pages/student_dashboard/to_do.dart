@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 class ToDo extends StatelessWidget {
-  String title;
+  final String title;
 
   ToDo({super.key, required this.title});
 
-  late Icon checkbox;
-  var isChecked = false.obs;
+  final isChecked = false.obs;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,12 @@ class ToDo extends StatelessWidget {
                 : Icons.check_box_outline_blank,
             color: Colors.deepPurpleAccent,
           )),
-          title: Text(title),
+          title: Obx(() => Text(
+            title,
+            style: TextStyle(
+              decoration: isChecked.value ? TextDecoration.lineThrough : null,
+            ),
+          )),
         ));
   }
 }

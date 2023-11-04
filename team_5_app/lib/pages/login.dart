@@ -4,13 +4,7 @@ import 'package:team_5_app/pages/adminDashboard.dart';
 import 'package:dio/dio.dart';
 
 import 'package:team_5_app/pages/student_dashboard/studentDashboard.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get.dart';
-import 'package:team_5_app/pages/assessment/assessment.dart';
-import 'package:team_5_app/pages/assessment/assessment_progress.dart';
 
-import 'adminDashboard.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -72,7 +66,6 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 TextField(
                   controller: _userNameController,
-                  textAlign: TextAlign.center,
                   style: const TextStyle(
                     color: Color(0xFF393939),
                     fontSize: 13,
@@ -109,7 +102,6 @@ class _LoginPageState extends State<LoginPage> {
                 TextField(
                   controller: _passController,
                   obscureText: true,
-                  textAlign: TextAlign.center,
                   style: const TextStyle(
                     color: Color(0xFF393939),
                     fontSize: 13,

@@ -1,33 +1,53 @@
+import 'dart:convert';
+import 'dart:developer';
+import 'dart:io';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:team_5_app/pages/assessment/assessment_progress.dart';
-import 'package:team_5_app/pages/login.dart';
 
-class AssessmentPage extends StatelessWidget {
-  const AssessmentPage({super.key});
+class AssessmentPage extends StatefulWidget {
+  int id;
+  AssessmentPage({super.key, required this.id});
+  @override
+  // ignore: no_logic_in_create_state
+  State<AssessmentPage> createState() => _AssessmentPageState(id: id);
+}
+
+class _AssessmentPageState extends State<AssessmentPage> {
+  final dio = Dio();
+  int id;
+  _AssessmentPageState({required this.id});
+  String assessmentName = "default";
+
+  Future<Response> getAssignment() async {
+    final response = await dio.get('http://localhost:4000/assignments/$id');
+
+    assessmentName = response.data['assignmentName'];
+    return response;
+  }
 
   @override
   Widget build(BuildContext context) {
-    // assessment title
-    return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.deepPurpleAccent,
-          title: const Text(
-            'AssessmentName Title Page',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 27,
-              fontFamily: 'Poppins',
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-        ),
-        body: const Center(
-            child: Column(children: [
-          AssessmentProgress(),
-        ])));
-
-    // assessment progress
-
-    // assessment grade
+    return FutureBuilder(
+        future: getAssignment(),
+        builder: (context, snapshot) {
+          return Scaffold(
+              appBar: AppBar(
+                backgroundColor: Colors.deepPurpleAccent,
+                title: Text(
+                  assessmentName,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 27,
+                    fontFamily: 'Poppins',
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+              body: const Center(
+                  child: Column(children: [
+                AssessmentProgress(),
+              ])));
+        });
   }
 }

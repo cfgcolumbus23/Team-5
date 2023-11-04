@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:team_5_app/pages/assessment/assessment.dart';
 
 class AssessmentProgress extends StatelessWidget {
   const AssessmentProgress({super.key});
@@ -21,8 +20,7 @@ class AssessmentProgress extends StatelessWidget {
               ),
             )),
             Flexible(
-                child:
-                    LinearProgressIndicator(value: 100, color: Colors.green)),
+                child: LinearProgressIndicator(value: 80, color: Colors.green)),
           ]),
         ]));
   }
