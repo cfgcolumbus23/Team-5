@@ -56,9 +56,15 @@ class _AdminPageState extends State<AdminPage> {
                 height: 50,
                 child: ElevatedButton(
                     onPressed: () => {},
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFF9F7BFF),
-                    ),
+                    style: ButtonStyle(backgroundColor:
+                        MaterialStateProperty.resolveWith<Color?>(
+                      (Set<MaterialState> states) {
+                        if (states.contains(MaterialState.pressed))
+                          return Colors.green; //<-- SEE HERE
+                        return const Color(
+                            0xFF9F7BFF); // Defer to the widget's default.
+                      },
+                    )),
                     child: const Center(
                         child: Text(
                       "Reward",
