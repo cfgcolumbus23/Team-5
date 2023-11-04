@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:team_5_app/pages/adminDashboard.dart';
 import 'dart:convert';
+import 'package:dio/dio.dart';
 
 import 'package:team_5_app/pages/studentDashboard.dart';
 
@@ -13,30 +14,24 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final dio = Dio();
+
   Future<bool> postLogin(String role) async {
-    print("yes Im not crazy");
-    print(jsonEncode(<String, String>{
-      'id': role,
-    }));
-    final response = await http.post(Uri.parse("http://localhost:4000/login"),
-        body: jsonEncode(<String, String>{
-          'id': role,
-        }));
-    Map<String, dynamic> jsonMap =
-        jsonDecode(response.body) as Map<String, dynamic>;
-    print(jsonMap['admin']);
-    return jsonMap['admin'] as bool;
+    final response =
+        await dio.post('http://localhost:4000/login', data: {'id': role});
+
+    return response.data['admin'] as bool;
   }
 
-  void isAdmin(String role) async {
-    bool admin = await postLogin(role);
-    print(admin);
-    if (admin) {
-      Get.to(AdminPage());
-    } else {
-      Get.to(StudentPage());
-    }
-  }
+  // void isAdmin(String role) async {
+  //   bool admin = await postLogin(role);
+  //   print(admin);
+  //   if (admin) {
+  //     Get.to(AdminPage());
+  //   } else {
+  //     Get.to(StudentPage());
+  //   }
+  // }
 
   final TextEditingController _userNameController = TextEditingController();
   final TextEditingController _passController = TextEditingController();
@@ -158,7 +153,11 @@ class _LoginPageState extends State<LoginPage> {
                     width: 329,
                     height: 56,
                     child: ElevatedButton(
-                      onPressed: () => {isAdmin(_userNameController.text)},
+                      onPressed: () async => {
+                        await postLogin(_userNameController.text)
+                            ? Get.to(AdminPage())
+                            : Get.to(StudentPage())
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFF9F7BFF),
                       ),
