@@ -6,6 +6,7 @@ class StudentDashboard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var todos = ['Complete certificate', 'Finish lesson today', 'Get gift card'];
     return Scaffold(
       appBar: AppBar(
         title: const Text('Student HomePage'),
@@ -32,23 +33,25 @@ class StudentDashboard extends StatelessWidget {
               ),
               ),
             ),
-            ToDo(),
+            ...[for (var todo in todos) ToDo(title: todo,)]
           ],
         ),
       ), //
-    );
         body: const Center(
           child: Column(
-            children: [
-              Stats(),
-              Incentives(),
-            ]
+              children: [
+                Stats(),
+                Incentives(),
+              ]
           ),
-        );
+        )
+    );
   }
 }
 class ToDo extends StatelessWidget {
-   ToDo({super.key});
+  String title;
+
+   ToDo({super.key, required this.title});
 
     late Icon checkbox;
     var isChecked = false.obs;
@@ -71,7 +74,7 @@ class ToDo extends StatelessWidget {
             Icons.check_box: Icons.check_box_outline_blank,
             color: Colors.deepPurpleAccent,
           )),
-          title: const Text('Complete certificate'),
+          title: Text(title),
         )
         );
   }
@@ -85,23 +88,25 @@ class Stats extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     List<int> scores = [80, 88, 88, 86, 84];
-    return ListView(scrollDirection: Axis.horizontal, children: <Widget>[
-      Container(
-        child: Text('Score: ' + scores.elementAt(0).toString()),
-      ),
-      Container(
-        child: Text('Score: ' + scores.elementAt(1).toString()),
-      ),
-      Container(
-        child: Text('Score: ' + scores.elementAt(2).toString()),
-      ),
-      Container(
-        child: Text('Score: ' + scores.elementAt(3).toString()),
-      ),
-      Container(
-        child: Text('Score: ' + scores.elementAt(4).toString()),
-      ),
-    ]);
+    return Expanded(
+      child: ListView(scrollDirection: Axis.horizontal, children: <Widget>[
+        Container(
+          child: Text('Score: ' + scores.elementAt(0).toString()),
+        ),
+        Container(
+          child: Text('Score: ' + scores.elementAt(1).toString()),
+        ),
+        Container(
+          child: Text('Score: ' + scores.elementAt(2).toString()),
+        ),
+        Container(
+          child: Text('Score: ' + scores.elementAt(3).toString()),
+        ),
+        Container(
+          child: Text('Score: ' + scores.elementAt(4).toString()),
+        ),
+      ]),
+    );
   }
 }
 
