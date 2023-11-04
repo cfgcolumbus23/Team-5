@@ -1,4 +1,10 @@
+import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'package:team_5_app/pages/adminDashboard.dart';
+import 'dart:convert';
+
+import 'package:team_5_app/pages/studentDashboard.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -7,6 +13,16 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  Future<int> postLogin(String role) async {
+    final response = await http.post(Uri.parse("http://localhost:4000/login"),
+        body: jsonEncode(<String, String>{
+          'id': role,
+        }));
+    Map<String, dynamic> jsonMap =
+        jsonDecode(response.body) as Map<String, dynamic>;
+    return jsonMap['id'];
+  }
+
   final TextEditingController _userNameController = TextEditingController();
   final TextEditingController _passController = TextEditingController();
 
@@ -127,7 +143,9 @@ class _LoginPageState extends State<LoginPage> {
                     width: 329,
                     height: 56,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () => postLogin(_userNameController.text) == 1
+                          ? Get.to(AdminPage())
+                          : Get.to(StudentPage()),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFF9F7BFF),
                       ),
