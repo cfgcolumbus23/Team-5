@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:team_5_app/pages/assessment/assessment_progress.dart';
 
+import '../assessment/assessment.dart';
+
 class Stats extends StatelessWidget {
   const Stats();
 
@@ -34,7 +36,7 @@ class Stats extends StatelessWidget {
         height: 100,
         child:ElevatedButton(
         onPressed: () {
-          Get.to(const AssessmentProgress());
+          Get.to(const AssessmentPage());
         },
         style: ElevatedButton.styleFrom(
           backgroundColor: const Color(0xFF9F7BFF),
