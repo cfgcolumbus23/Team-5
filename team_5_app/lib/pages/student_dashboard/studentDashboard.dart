@@ -6,7 +6,7 @@ import 'package:team_5_app/pages/student_dashboard/stats.dart';
 import 'package:team_5_app/pages/student_dashboard/to_do.dart';
 
 class StudentDashboard extends StatelessWidget {
-  const StudentDashboard({super.key});
+  const StudentDashboard({super.key, required int studentID});
 
   @override
   Widget build(BuildContext context) {
